@@ -272,7 +272,7 @@
                 <version>2.6</version>
                 <configuration>
                     <outputDirectory>/at/webapps/</outputDirectory>
-                    <warName>getyourplace</warName>
+                    <warName>bancomat</warName>
                 </configuration>
             </plugin>
 
