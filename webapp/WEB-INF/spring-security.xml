@@ -11,13 +11,6 @@
     <http auto-config="true" use-expressions="true">
 
         <intercept-url pattern="/" access="permitAll"/>
-        <intercept-url pattern="/r/{linkName}" access="permitAll"/>
-        <intercept-url pattern="/api/login" access="permitAll"/>
-        <intercept-url pattern="/api/register" access="permitAll"/>
-        <intercept-url pattern="/reservation" access="permitAll"/>
-        <intercept-url pattern="/reservation/usr" access="permitAll"/>
-        <intercept-url pattern="/api/create/reservation" access="permitAll"/>
-        <intercept-url pattern="/create/reservation" access="permitAll"/>
 
         <access-denied-handler error-page="/403" />
 
@@ -40,15 +33,9 @@
         <csrf disabled="true"/>
     </http>
 
-    <beans:bean id="successHandler" class="ro.getyourplace.security.handler.AuthSuccessHandler"/>
-    <beans:bean id="failureHandler" class="ro.getyourplace.security.handler.AuthFailureHandler"/>
+    <beans:bean id="successHandler" class="com.infoworld.security.handler.AuthSuccessHandler"/>
+    <beans:bean id="failureHandler" class="com.infoworld.security.handler.AuthFailureHandler"/>
 
-    <authentication-manager>
-        <authentication-provider user-service-ref="customUserDetailsService" >
-            <!--<password-encoder hash="bcrypt" />-->
-        </authentication-provider>
-    </authentication-manager>
 
-    <beans:bean id="customUserDetailsService" class="ro.getyourplace.security.service.CustomUserDetailsService" />
 
 </beans:beans>
