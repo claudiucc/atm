@@ -22,9 +22,10 @@ public class IndexController {
         return model;
     }
 
-    // controller unAuthenticated user
-    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
-    public void getAmount(@RequestParam("amount") Integer amount) {
+    @RequestMapping(value = "/bank", method = RequestMethod.GET)
+    public ModelAndView getAmount(@RequestParam("amount") Integer amount) {
+        ModelAndView model = new ModelAndView("index");
         System.out.println(amount);
+        return model;
     }
 }
