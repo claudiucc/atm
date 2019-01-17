@@ -8,6 +8,25 @@ public class Amount {
     private Integer banknote10;
     private Integer banknote50;
     private Integer banknote100;
+    private Integer total;
+
+    public Amount() {
+        this.banknote1 = 0;
+        this.banknote5 = 0;
+        this.banknote10 = 0;
+        this.banknote50 = 0;
+        this.banknote100 = 0;
+        this.total = this.banknote1 + this.banknote5 + this.banknote10 + this.banknote50 + this.banknote100;
+    }
+
+    public Amount(Integer banknote1, Integer banknote5, Integer banknote10, Integer banknote50, Integer banknote100) {
+        this.banknote1 = banknote1;
+        this.banknote5 = banknote5;
+        this.banknote10 = banknote10;
+        this.banknote50 = banknote50;
+        this.banknote100 = banknote100;
+        this.total = this.banknote1 + this.banknote5 + this.banknote10 + this.banknote50 + this.banknote100;
+    }
 
     public Integer getBanknote1() {
         return banknote1;
@@ -47,5 +66,13 @@ public class Amount {
 
     public void setBanknote100(Integer banknote100) {
         this.banknote100 = banknote100;
+    }
+
+    public Integer getTotal() {
+        return total;
+    }
+
+    public void setTotal(Integer total) {
+        this.total = total;
     }
 }
