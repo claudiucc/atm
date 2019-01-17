@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -19,5 +20,11 @@ public class IndexController {
     public ModelAndView index() {
         ModelAndView model = new ModelAndView("index");
         return model;
+    }
+
+    // controller unAuthenticated user
+    @RequestMapping(value = "/reservation", method = RequestMethod.GET)
+    public void getAmount(@RequestParam("amount") Integer amount) {
+        System.out.println(amount);
     }
 }
