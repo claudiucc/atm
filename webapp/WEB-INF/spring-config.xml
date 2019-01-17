@@ -47,11 +47,11 @@
         <!-- config -->
         <property name="driverClass" value="com.mysql.jdbc.Driver" />
         <!-- local -->
-        <property name="jdbcUrl" value="jdbc:mysql://server.yourz.ro:3306/getyourp_lace?useUnicode=yes&amp;characterEncoding=UTF-8" />
+        <property name="jdbcUrl" value="jdbc:mysql://server.yourz.ro:3306/getyourp_infow?useUnicode=yes&amp;characterEncoding=UTF-8" />
         <!-- external -->
         <!--<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/getyourp_lace?useUnicode=yes&amp;characterEncoding=UTF-8" />-->
-        <property name="user" value="getyourplace" />
-        <property name="password" value="QJJ1CnUEIrSQqBX8" />
+        <property name="user" value="getyourp_infow" />
+        <property name="password" value="infoworld19" />
 
         <property name="minPoolSize" value="5" />
         <property name="maxPoolSize" value="20" />
@@ -66,19 +66,5 @@
     </bean>
 
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
-
-    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="server.yourz.ro" />
-        <property name="port" value="25" />
-        <property name="username" value="office@getyourplace.ro"/>
-        <property name="password" value="atyourplace" />
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.transport.protocol">smtp</prop>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-            </props>
-        </property>
-    </bean>
 
 </beans>

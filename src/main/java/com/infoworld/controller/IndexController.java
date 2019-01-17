@@ -26,6 +26,7 @@ public class IndexController {
     public ModelAndView getAmount(@RequestParam("amount") Integer amount) {
         ModelAndView model = new ModelAndView("index");
         System.out.println(amount);
+        logger.info("Your amount is: " + amount);
         return model;
     }
 }
