@@ -29,6 +29,49 @@ public class AtmController {
         Atm atm = atmService.findById(1);
         Amount sum = new Amount();
 
-        return new ResponseEntity<Object>("CEVA sssssssssssss", HttpStatus.OK);
+        int[] notes = new int[]{100, 50, 10, 5, 1};
+        int[] noteCounter = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            if (amount >= notes[i]) {
+                noteCounter[i] = amount / notes[i];
+                amount = amount - noteCounter[i] * notes[i];
+            }
+        }
+
+        if (noteCounter[0] <= atm.getBanknote100())
+            sum.setBanknote100(noteCounter[0]);
+        else
+            return new ResponseEntity<Object>("Tranzactie esuata! Bancomatul nu are disponibila aceasta suma.", HttpStatus.BAD_REQUEST);
+
+        if (noteCounter[1] <= atm.getBanknote50())
+            sum.setBanknote50(noteCounter[1]);
+        else
+            return new ResponseEntity<Object>("Tranzactie esuata! Bancomatul nu are disponibila aceasta suma.", HttpStatus.BAD_REQUEST);
+
+        if (noteCounter[2] <= atm.getBanknote10())
+            sum.setBanknote10(noteCounter[2]);
+        else
+            return new ResponseEntity<Object>("Tranzactie esuata! Bancomatul nu are disponibila aceasta suma.", HttpStatus.BAD_REQUEST);
+
+        if (noteCounter[3] <= atm.getBanknote5())
+            sum.setBanknote5(noteCounter[3]);
+        else
+            return new ResponseEntity<Object>("Tranzactie esuata! Bancomatul nu are disponibila aceasta suma.", HttpStatus.BAD_REQUEST);
+
+        if (noteCounter[4] <= atm.getBanknote1())
+            sum.setBanknote1(noteCounter[4]);
+        else
+            return new ResponseEntity<Object>("Tranzactie esuata! Bancomatul nu are disponibila aceasta suma.", HttpStatus.BAD_REQUEST);
+
+        atm.setBanknote1(atm.getBanknote1() - noteCounter[4]);
+        atm.setBanknote5(atm.getBanknote5() - noteCounter[3]);
+        atm.setBanknote10(atm.getBanknote10() - noteCounter[2]);
+        atm.setBanknote50(atm.getBanknote50() - noteCounter[1]);
+        atm.setBanknote100(atm.getBanknote100() - noteCounter[0]);
+        atmService.update(atm);
+
+        return new ResponseEntity<Object>(sum, HttpStatus.OK);
     }
+
 }

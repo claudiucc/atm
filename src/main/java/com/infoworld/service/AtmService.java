@@ -17,4 +17,8 @@ public class AtmService {
     public Atm findById(Integer id) {
         return atmDAO.findById(id);
     }
+
+    public Atm update(Atm atm) {
+        return atmDAO.update(atm);
+    }
 }
