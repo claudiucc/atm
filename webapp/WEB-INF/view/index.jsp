@@ -5,6 +5,6 @@
         <title>InfoWorld</title>
     </head>
     <body>
-        Hello World !
+        Hello InfoWorld !
     </body>
 </html>
