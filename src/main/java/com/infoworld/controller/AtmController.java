@@ -29,6 +29,21 @@ public class AtmController {
         Atm atm = atmService.findById(1);
         Amount sum = new Amount();
 
+        if(atm.getBanknote100() < 20) {
+            logger.warn("Numarul bancnotelor de 100 de lei a scazut sub 20!");
+            System.out.println("Warning! Numarul bancnotelor de 100 de lei a scazut sub 20!");
+        }
+
+        if(atm.getBanknote100() < 5) {
+            logger.warn("Numarul bancnotelor de 100 de lei a scazut sub 10%!");
+            System.out.println("Critical! Numarul bancnotelor de 100 de lei a scazut sub 10%!");
+        }
+
+        if(atm.getBanknote50() < 7.5) {
+            logger.warn("Numarul bancnotelor de 50 de lei a scazut sub 15%!");
+            System.out.println("Warning! Numarul bancnotelor de 50 de lei a scazut sub 15%!");
+        }
+
         int[] notes = new int[]{100, 50, 10, 5, 1};
         int[] noteCounter = new int[5];
 
