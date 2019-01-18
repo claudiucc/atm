@@ -44,6 +44,10 @@ public class AtmController {
             System.out.println("Warning! Numarul bancnotelor de 50 de lei a scazut sub 15%!");
         }
 
+        if(amount > 200) {
+            clientNotification("A fost retrasa o suma mai mare de 200 RON!");
+        }
+
         int[] notes = new int[]{100, 50, 10, 5, 1};
         int[] noteCounter = new int[5];
 
@@ -89,4 +93,8 @@ public class AtmController {
         return new ResponseEntity<Object>(sum, HttpStatus.OK);
     }
 
+    private void clientNotification(String message) {
+        logger.info(message);
+        System.out.println("Notificare! " + message);
+    }
 }
